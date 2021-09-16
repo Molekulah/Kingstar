@@ -363,6 +363,10 @@ export default function App() {
       setExpNeeded(Math.round(expNeeded * 1.5));
       setLevel(level + 1);
       setMoneyGain(moneyGain * 2);
+      const expRemain = exp - expNeeded;
+      if (exp < expNeeded) {
+        setExp(exp + expRemain);
+      }
     }
   };
 
