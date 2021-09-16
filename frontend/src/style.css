@@ -1,0 +1,80 @@
+.principal-h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+  color: whitesmoke;
+  font-weight: bold;
+  user-select: none;
+}
+
+.principal-span {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: whitesmoke;
+  user-select: none;
+}
+
+br {
+  user-select: none;
+}
+
+button {
+  width: 200px;
+  height: 50px;
+  top: auto;
+  margin: 0 0 25px 0;
+  user-select: none;
+}
+
+.mainPaper {
+  text-align: center;
+  background-color: #1f1f1f;
+  height: 100vh;
+  border: solid #1f1f1f;
+}
+
+.mt-5 {
+  margin-bottom: 5% !important;
+}
+
+.achievements {
+  position: static;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+.center {
+  text-align: center;
+  align-items: center;
+}
+
+.flexbox {
+  justify-content: space-evenly;
+  display: flex;
+}
+
+.mainModal {
+  text-align: center;
+  background-color: #1f1f1f;
+  border: solid #1f1f1f;
+}
+
+.hidden-div {
+  display: none;
+}
