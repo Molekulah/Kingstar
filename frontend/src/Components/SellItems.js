@@ -483,6 +483,10 @@ const SellItems = ({
           <h1 className="principal-h1"> Sell </h1>
           <span className="principal-span">
             {" "}
+            Your money: {money}{" "}
+          </span> <br /> <br />
+          <span className="principal-span">
+            {" "}
             Grass value: {grassCost * moneyGain} <br />
             You'll get: {grass * grassCost * moneyGain} money{" "}
           </span>{" "}

@@ -12,6 +12,7 @@ const AxesShop = ({
   buyIronAxe,
   buyPlatinumAxe,
   buyDiamondAxe,
+  money,
 }) => {
   return (
     <div>
@@ -22,6 +23,10 @@ const AxesShop = ({
       <Modal show={show} onHide={closeModal} variant="bg-primary">
         <Modal.Body className="mainModal">
           <h1 className="principal-h1"> Upgrades </h1> <br />
+          <span className="principal-span">
+            {" "}
+            Your money: {money}{" "}
+          </span> <br /> <br />
           <span className="principal-span"> Buy Wooden Axe </span> <br />
           <span className="principal-span"> Cost: 100 money </span> <br />
           <Button onClick={buyWoodenAxe}> Click to Buy </Button> <br />
@@ -33,13 +38,13 @@ const AxesShop = ({
           <Button onClick={buyGoldAxe}> Click to Buy </Button> <br />
           <span className="principal-span"> Buy Iron Axe </span> <br />
           <span className="principal-span"> Cost: 10000 money </span> <br />
-          <Button onClick={buyIronAxe}> Click to Buy </Button>
+          <Button onClick={buyIronAxe}> Click to Buy </Button> <br />
           <span className="principal-span"> Buy Platinum Axe </span> <br />
           <span className="principal-span"> Cost: 50000 money </span> <br />
-          <Button onClick={buyPlatinumAxe}> Click to Buy </Button>
+          <Button onClick={buyPlatinumAxe}> Click to Buy </Button> <br />
           <span className="principal-span"> Buy Diamond Axe </span> <br />
           <span className="principal-span"> Cost: 2500000 money </span> <br />
-          <Button onClick={buyDiamondAxe}> Click to Buy </Button>
+          <Button onClick={buyDiamondAxe}> Click to Buy </Button> <br />
         </Modal.Body>
         <Modal.Footer className="mainModal">
           <Button variant="secondary" onClick={closeModal}>

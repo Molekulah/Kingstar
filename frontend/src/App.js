@@ -295,7 +295,7 @@ export default function App() {
   //Pickaxes
 
   const buyWoodenPickaxe = () => {
-    if (money >= 50) {
+    if (money >= 50 && woodenPickaxe === false) {
       setMoney(money - 50);
       setPickaxe(true);
       setWoodenPickaxe(true);
@@ -303,7 +303,7 @@ export default function App() {
   };
 
   const buyStonePickaxe = () => {
-    if (money >= 250 && woodenPickaxe === true) {
+    if (money >= 250 && woodenPickaxe === true && stonePickaxe === false) {
       setMoney(money - 250);
       setWoodenPickaxe(false);
       setStonePickaxe(true);
@@ -311,7 +311,7 @@ export default function App() {
   };
 
   const buyGoldPickaxe = () => {
-    if (money >= 1000 && stonePickaxe === true) {
+    if (money >= 1000 && stonePickaxe === true && goldPickaxe === false) {
       setMoney(money - 1000);
       setStonePickaxe(false);
       setGoldPickaxe(true);
@@ -319,7 +319,7 @@ export default function App() {
   };
 
   const buyIronPickaxe = () => {
-    if (money >= 5000 && goldPickaxe === true) {
+    if (money >= 5000 && goldPickaxe === true && ironPickaxe === false) {
       setMoney(money - 5000);
       setGoldPickaxe(false);
       setIronPickaxe(true);
@@ -327,7 +327,7 @@ export default function App() {
   };
 
   const buyPlatinumPickaxe = () => {
-    if (money >= 25000 && ironPickaxe === true) {
+    if (money >= 25000 && ironPickaxe === true && platinumPickaxe === false) {
       setMoney(money - 25000);
       setIronPickaxe(false);
       setPlatinumPickaxe(true);
@@ -335,7 +335,11 @@ export default function App() {
   };
 
   const buyDiamondPickaxe = () => {
-    if (money >= 100000 && platinumPickaxe === true) {
+    if (
+      money >= 100000 &&
+      platinumPickaxe === true &&
+      diamondPickaxe === false
+    ) {
       setMoney(money - 100000);
       setPlatinumPickaxe(false);
       setDiamondPickaxe(true);
@@ -345,7 +349,7 @@ export default function App() {
   //Axes
 
   const buyWoodenAxe = () => {
-    if (money >= 100) {
+    if (money >= 100 && woodenAxe === false) {
       setMoney(money - 100);
       setAxe(true);
       setWoodenAxe(true);
@@ -353,7 +357,7 @@ export default function App() {
   };
 
   const buyStoneAxe = () => {
-    if (money >= 500 && woodenAxe === true) {
+    if (money >= 500 && woodenAxe === true && stoneAxe === false) {
       setMoney(money - 500);
       setWoodenAxe(false);
       setStoneAxe(true);
@@ -361,7 +365,7 @@ export default function App() {
   };
 
   const buyGoldAxe = () => {
-    if (money >= 2500 && stoneAxe === true) {
+    if (money >= 2500 && stoneAxe === true && goldAxe === false) {
       setMoney(money - 2500);
       setStoneAxe(false);
       setGoldAxe(true);
@@ -369,7 +373,7 @@ export default function App() {
   };
 
   const buyIronAxe = () => {
-    if (money >= 10000 && goldAxe === true) {
+    if (money >= 10000 && goldAxe === true && ironAxe === false) {
       setMoney(money - 10000);
       setGoldAxe(false);
       setIronAxe(true);
@@ -377,7 +381,7 @@ export default function App() {
   };
 
   const buyPlatinumAxe = () => {
-    if (money >= 50000 && ironAxe === true) {
+    if (money >= 50000 && ironAxe === true && platinumAxe === false) {
       setMoney(money - 50000);
       setIronAxe(false);
       setPlatinumAxe(true);
@@ -385,7 +389,7 @@ export default function App() {
   };
 
   const buyDiamondAxe = () => {
-    if (money >= 250000 && platinumAxe === true) {
+    if (money >= 250000 && platinumAxe === true && diamondAxe === false) {
       setMoney(money - 250000);
       setPlatinumAxe(false);
       setDiamondAxe(true);
@@ -428,7 +432,6 @@ export default function App() {
       setTotalWood(totalWood + 1);
       setExp(exp + 1);
       addLevel();
-      console.log("ta complicado");
     } else if (axe) {
       if (woodenAxe) {
         setWood(wood + 3);
@@ -729,6 +732,7 @@ export default function App() {
               buyIronPickaxe={buyIronPickaxe}
               buyPlatinumPickaxe={buyPlatinumPickaxe}
               buyDiamondPickaxe={buyDiamondPickaxe}
+              money={money}
             />
             <AxesShop
               show={showAxeShop}
@@ -740,6 +744,7 @@ export default function App() {
               buyIronAxe={buyIronAxe}
               buyPlatinumAxe={buyPlatinumAxe}
               buyDiamondAxe={buyDiamondAxe}
+              money={money}
             />
             <SellItems
               show={showSellItems}
