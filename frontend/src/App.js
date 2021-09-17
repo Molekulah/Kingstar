@@ -234,6 +234,7 @@ export default function App() {
 
     gold,
     iron,
+    platinum,
     diamond,
 
     //Total Ores
@@ -551,78 +552,6 @@ export default function App() {
     }
   };
 
-  //Sell
-
-  const sellWood = () => {
-    if (wood > 0) {
-      setMoney(money + wood * woodCost * moneyGain);
-      setTotalMoney(totalMoney + wood * woodCost * moneyGain);
-      setWood((wood) => 0);
-      setExp(exp + wood);
-      addLevel();
-    }
-  };
-
-  const sellGrass = () => {
-    if (grass > 0) {
-      setMoney(money + grass * grassCost * moneyGain);
-      setTotalMoney(totalMoney + grass * grassCost * moneyGain);
-      setGrass((grass) => 0);
-      setExp(exp + grass);
-      addLevel();
-    }
-  };
-
-  const sellStone = () => {
-    setExp(exp + stone);
-    if (stone > 0) {
-      setMoney(money + stone * stoneCost * moneyGain);
-      setTotalMoney(totalMoney + stone * stoneCost * moneyGain);
-      setStone((stone) => 0);
-      addLevel();
-    }
-  };
-
-  const sellGold = () => {
-    setExp(exp + gold);
-    if (gold > 0) {
-      setMoney(money + gold * goldCost * moneyGain);
-      setTotalMoney(totalMoney + gold * goldCost * moneyGain);
-      setGold((gold) => 0);
-      addLevel();
-    }
-  };
-
-  const sellIron = () => {
-    setExp(exp + iron);
-    if (iron > 0) {
-      setMoney(money + iron * ironCost * moneyGain);
-      setTotalMoney(totalMoney + iron * ironCost * moneyGain);
-      setIron((iron) => 0);
-      addLevel();
-    }
-  };
-
-  const sellPlatinum = () => {
-    setExp(exp + platinum);
-    if (platinum > 0) {
-      setMoney(money + platinum * platinumCost * moneyGain);
-      setTotalMoney(totalMoney + platinum * platinumCost * moneyGain);
-      setPlatinum((platinum) => 0);
-      addLevel();
-    }
-  };
-
-  const sellDiamond = () => {
-    setExp(exp + diamond);
-    if (diamond > 0) {
-      setMoney(money + diamond * diamondCost * moneyGain);
-      setTotalMoney(totalMoney + diamond * diamondCost * moneyGain);
-      setDiamond((diamond) => 0);
-      addLevel();
-    }
-  };
-
   //Configurations
 
   const resetButton = () => {
@@ -708,6 +637,7 @@ export default function App() {
               addLevel={addLevel}
             />
             <Mine
+              className=""
               show={showMine}
               closeModal={handleCloseMine}
               showModal={handleShowMine}
@@ -761,13 +691,6 @@ export default function App() {
               show={showSellItems}
               closeModal={handleCloseSellItems}
               showModal={handleShowSellItems}
-              sellGrass={sellGrass}
-              sellWood={sellWood}
-              sellStone={sellStone}
-              sellGold={sellGold}
-              sellIron={sellIron}
-              sellPlatinum={sellPlatinum}
-              sellDiamond={sellDiamond}
               grass={grass}
               wood={wood}
               stone={stone}
@@ -783,6 +706,20 @@ export default function App() {
               platinumCost={platinumCost}
               diamondCost={diamondCost}
               moneyGain={moneyGain}
+              setMoney={setMoney}
+              money={money}
+              setTotalMoney={setTotalMoney}
+              totalMoney={totalMoney}
+              setWood={setWood}
+              setExp={setExp}
+              exp={exp}
+              addLevel={addLevel}
+              setGrass={setGrass}
+              setStone={setStone}
+              setGold={setGold}
+              setIron={setIron}
+              setPlatinum={setPlatinum}
+              setDiamond={setDiamond}
             />
           </div>
           <div>
