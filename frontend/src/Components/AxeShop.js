@@ -9,6 +9,9 @@ const AxesShop = ({
   buyWoodenAxe,
   buyStoneAxe,
   buyGoldAxe,
+  buyIronAxe,
+  buyPlatinumAxe,
+  buyDiamondAxe,
 }) => {
   return (
     <div>
@@ -28,6 +31,15 @@ const AxesShop = ({
           <span className="principal-span"> Buy Gold Axe </span> <br />
           <span className="principal-span"> Cost: 2500 money </span> <br />
           <Button onClick={buyGoldAxe}> Click to Buy </Button> <br />
+          <span className="principal-span"> Buy Iron Axe </span> <br />
+          <span className="principal-span"> Cost: 10000 money </span> <br />
+          <Button onClick={buyIronAxe}> Click to Buy </Button>
+          <span className="principal-span"> Buy Platinum Axe </span> <br />
+          <span className="principal-span"> Cost: 50000 money </span> <br />
+          <Button onClick={buyPlatinumAxe}> Click to Buy </Button>
+          <span className="principal-span"> Buy Diamond Axe </span> <br />
+          <span className="principal-span"> Cost: 2500000 money </span> <br />
+          <Button onClick={buyDiamondAxe}> Click to Buy </Button>
         </Modal.Body>
         <Modal.Footer className="mainModal">
           <Button variant="secondary" onClick={closeModal}>
