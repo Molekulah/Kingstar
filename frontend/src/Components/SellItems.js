@@ -30,6 +30,7 @@ const SellItems = ({
   setWood,
   setExp,
   exp,
+  expNeeded,
   addLevel,
   setGrass,
   setStone,
@@ -46,6 +47,7 @@ const SellItems = ({
   const [sellOneHundred, setSellOneHundred] = useState(false);
   const [sellOneThousand, setSellOneThousand] = useState(false);
   const [sellMax, setSellMax] = useState(false);
+  const [sellNextLevel, setSellNextLevel] = useState(false);
 
   const setQuantityOne = () => {
     setSellOne(true);
@@ -54,6 +56,7 @@ const SellItems = ({
     setSellOneHundred(false);
     setSellOneThousand(false);
     setSellMax(false);
+    setSellNextLevel(false);
   };
   const setQuantityFive = () => {
     setSellOne(false);
@@ -62,6 +65,7 @@ const SellItems = ({
     setSellOneHundred(false);
     setSellOneThousand(false);
     setSellMax(false);
+    setSellNextLevel(false);
   };
   const setQuantityTen = () => {
     setSellOne(false);
@@ -70,6 +74,7 @@ const SellItems = ({
     setSellOneHundred(false);
     setSellOneThousand(false);
     setSellMax(false);
+    setSellNextLevel(false);
   };
   const setQuantityOneHundred = () => {
     setSellOne(false);
@@ -78,6 +83,7 @@ const SellItems = ({
     setSellOneHundred(true);
     setSellOneThousand(false);
     setSellMax(false);
+    setSellNextLevel(false);
   };
   const setQuantityOneThousand = () => {
     setSellOne(false);
@@ -86,6 +92,7 @@ const SellItems = ({
     setSellOneHundred(false);
     setSellOneThousand(true);
     setSellMax(false);
+    setSellNextLevel(false);
   };
   const setQuantityMax = () => {
     setSellOne(false);
@@ -94,6 +101,16 @@ const SellItems = ({
     setSellOneHundred(false);
     setSellOneThousand(false);
     setSellMax(true);
+    setSellNextLevel(false);
+  };
+  const setQuantityNextLevel = () => {
+    setSellOne(false);
+    setSellFive(false);
+    setSellTen(false);
+    setSellOneHundred(false);
+    setSellOneThousand(false);
+    setSellMax(false);
+    setSellNextLevel(true);
   };
 
   //Sell
@@ -136,6 +153,12 @@ const SellItems = ({
         setWood((wood) => 0);
         setExp(exp + wood);
         addLevel();
+      } else if (sellNextLevel && wood > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * woodCost * moneyGain);
+        setTotalMoney(totalMoney + (expNeeded - exp) * woodCost * moneyGain);
+        setWood(wood - (expNeeded - exp));
+        setExp(exp + expNeeded);
+        addLevel();
       }
   };
 
@@ -176,6 +199,12 @@ const SellItems = ({
         setTotalMoney(totalMoney + stone * stoneCost * moneyGain);
         setStone((stone) => 0);
         setExp(exp + stone);
+        addLevel();
+      } else if (sellNextLevel && stone > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * stoneCost * moneyGain);
+        setTotalMoney(totalMoney + (expNeeded - exp) * stoneCost * moneyGain);
+        setStone(wood - (expNeeded - exp));
+        setExp(exp + expNeeded);
         addLevel();
       }
   };
@@ -218,6 +247,12 @@ const SellItems = ({
         setGrass((grass) => 0);
         setExp(exp + grass);
         addLevel();
+      } else if (sellNextLevel && grass > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * grassCost * moneyGain);
+        setTotalMoney(totalMoney + (expNeeded - exp) * grassCost * moneyGain);
+        setGrass(grass - (expNeeded - exp));
+        setExp(exp + expNeeded);
+        addLevel();
       }
   };
 
@@ -258,6 +293,12 @@ const SellItems = ({
         setTotalMoney(totalMoney + gold * goldCost * moneyGain);
         setGold((gold) => 0);
         setExp(exp + gold);
+        addLevel();
+      } else if (sellNextLevel && gold > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * goldCost * moneyGain);
+        setTotalMoney(totalMoney + (expNeeded - exp) * goldCost * moneyGain);
+        setGold(gold - (expNeeded - exp));
+        setExp(exp + expNeeded);
         addLevel();
       }
   };
@@ -300,6 +341,12 @@ const SellItems = ({
         setIron((iron) => 0);
         setExp(exp + iron);
         addLevel();
+      } else if (sellNextLevel && iron > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * ironCost * moneyGain);
+        setTotalMoney(totalMoney + (expNeeded - exp) * ironCost * moneyGain);
+        setIron(iron - (expNeeded - exp));
+        setExp(exp + expNeeded);
+        addLevel();
       }
   };
 
@@ -340,6 +387,14 @@ const SellItems = ({
         setTotalMoney(totalMoney + platinum * platinumCost * moneyGain);
         setPlatinum((platinum) => 0);
         setExp(exp + platinum);
+        addLevel();
+      } else if (sellNextLevel && platinum > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * platinumCost * moneyGain);
+        setTotalMoney(
+          totalMoney + (expNeeded - exp) * platinumCost * moneyGain
+        );
+        setPlatinum(platinum - (expNeeded - exp));
+        setExp(exp + expNeeded);
         addLevel();
       }
   };
@@ -382,6 +437,12 @@ const SellItems = ({
         setDiamond((diamond) => 0);
         setExp(exp + diamond);
         addLevel();
+      } else if (sellNextLevel && diamond > expNeeded - exp) {
+        setMoney(money + (expNeeded - exp) * diamondCost * moneyGain);
+        setTotalMoney(totalMoney + (expNeeded - exp) * diamondCost * moneyGain);
+        setDiamond(diamond - (expNeeded - exp));
+        setExp(exp + expNeeded);
+        addLevel();
       }
   };
 
@@ -413,6 +474,9 @@ const SellItems = ({
           </Button>{" "}
           <Button variant="warning" onClick={setQuantityMax}>
             max
+          </Button>{" "}
+          <Button variant="warning" onClick={setQuantityNextLevel}>
+            nt lvl
           </Button>{" "}
         </ModalHeader>
         <ModalBody className="mainModal">

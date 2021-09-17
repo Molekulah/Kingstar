@@ -774,6 +774,7 @@ export default function App() {
               setIron={setIron}
               setPlatinum={setPlatinum}
               setDiamond={setDiamond}
+              expNeeded={expNeeded}
             />
           </div>
           <div>
