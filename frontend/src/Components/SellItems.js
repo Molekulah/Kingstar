@@ -487,8 +487,8 @@ const SellItems = ({
           </span> <br /> <br />
           <span className="principal-span">
             {" "}
-            Grass value: {grassCost * moneyGain} <br />
-            You'll get: {grass * grassCost * moneyGain} money{" "}
+            Grass value: {Math.round(grassCost * moneyGain)} <br />
+            You'll get: {Math.round(grass * grassCost * moneyGain)} money{" "}
           </span>{" "}
           <br />
           <Button variant="warning" onClick={sellGrass}>

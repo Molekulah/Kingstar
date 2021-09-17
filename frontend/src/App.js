@@ -399,15 +399,21 @@ export default function App() {
   //Level
 
   const addLevel = () => {
-    if (exp >= expNeeded) {
+    if (exp >= expNeeded && level < 5) {
       setExp(exp * 0);
       setExpNeeded(Math.round(expNeeded * 1.5));
       setLevel(level + 1);
       setMoneyGain(moneyGain * 2);
-      const expRemain = exp - expNeeded;
-      if (exp < expNeeded) {
-        setExp(exp + expRemain);
-      }
+    } else if (exp >= expNeeded && level >= 5 && level <= 10) {
+      setExp(exp * 0);
+      setExpNeeded(Math.round(expNeeded * 1.25));
+      setLevel(level + 1);
+      setMoneyGain(moneyGain * 1.5);
+    } else if (exp >= expNeeded && level >= 10) {
+      setExp(exp * 0);
+      setExpNeeded(Math.round(expNeeded * 1.15));
+      setLevel(level + 1);
+      setMoneyGain(Math.round(moneyGain * 1.25));
     }
   };
 
