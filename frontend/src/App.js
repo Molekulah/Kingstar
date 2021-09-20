@@ -11,6 +11,8 @@ import SellItems from "./Components/SellItems";
 import Mine from "./Components/Mine";
 
 export default function App() {
+  const inCooldown = false;
+
   //Modal
 
   const [showPickaxeShop, setShow] = useState(false);

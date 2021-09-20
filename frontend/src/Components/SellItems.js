@@ -451,7 +451,7 @@ const SellItems = ({
       <h1 className="principal-h1"> Sell Items </h1>
       <br />
       <Button variant="warning" onClick={showModal}>
-        Pickaxe Shop
+        Sell Items
       </Button>{" "}
       <br />
       <Modal show={show} onHide={closeModal} variant="bg-primary">
